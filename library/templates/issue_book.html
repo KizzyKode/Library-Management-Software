@@ -1,0 +1,98 @@
+{% extends 'admin_navbar.html' %}
+{% load static %}
+{% block title %} Issue Book {% endblock %}
+{% block css %}
+<style>
+
+    body {
+        background: #222D32;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .container {
+        margin-top: 75px;
+        width: 70%;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 30px;
+        letter-spacing: 2px;
+        font-weight: bold;
+        color: #ECF0F5;
+        margin-bottom: 20px;
+    }
+
+    form {
+        background-color: #1A2226;
+        color: #ECF0F5;
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    button[type="submit"] {
+        border-color: #0DB8DE;
+        color: #0DB8DE;
+        border-radius: 0;
+        font-weight: bold;
+        letter-spacing: 1px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
+
+    button[type="submit"]:hover{
+        background-color:#0DB8DE;
+        color: white;
+        border: 1px solid #0DB8DE;
+    }
+
+    @media (max-width: 767px) {
+        /* Adjust container width to 100% on screens smaller than 768px */
+        .container {
+            width: 100%;
+        }
+
+        h1{
+            font-size: 20px;
+        }
+
+        .login-title{
+            font-size: 20px;
+        }
+
+        
+    }
+</style>
+{% endblock %}
+{% block body %}
+<div class="container mt-4">
+    <h1 class="text-center">ISSUE BOOK</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {% for i in form %}
+        <div class="form-group">
+            <label class="control-label col-xs-4">{{ i.label_tag }}</label>
+            <div class="col-xs-8 mt-2">
+                {{ i }}
+            </div>
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-outline-primary mt-4">Issue Book</button>
+    </form>
+</div>
+{% endblock %}
+{% block js %}
+<script>
+    {% if alert %}
+    alert("Book Successfully Issued.")
+    document.location = "/issue_book"
+    {% endif %}
+</script>
+{% endblock %}

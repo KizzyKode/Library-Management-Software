@@ -1,0 +1,123 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block title %} Guest User {% endblock %}
+{% block css %}
+<style>
+    body {
+        background: #222D32;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .container {
+        margin-top: 75px;
+        width: 70%;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 30px;
+        letter-spacing: 2px;
+        font-weight: bold;
+        color: #ECF0F5;
+        margin-bottom: 20px;
+    }
+
+    table {
+        background-color: #1A2226;
+        color: #ECF0F5;
+    }
+
+    th {
+        background-color: #0DB8DE;
+        color: #1A2226;
+        font-weight: bold;
+    }
+
+    td {
+        text-align: center;
+        background-color: white !important;
+        
+    }
+
+    table.table-hover tbody tr:hover {
+        background-color: #0DB8DE;
+        color: #1A2226;
+    }
+
+    th {
+        color: white !important;
+        text-align: center;
+    }
+
+    .guest_text{
+        width: 80%;
+        margin-left: 10%;
+        margin-top: 1%;
+    }
+
+    .regbutton {
+        background-color: transparent !important;
+        border: 1px solid #0DB8DE;
+        color: #0DB8DE;
+        padding: 10px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+    
+      .regbutton:hover {
+        background-color: #0DB8DE !important;
+        color: white;
+      }
+
+    @media (max-width: 767px) {
+        /* Adjust container width to 100% on screens smaller than 768px */
+        .container {
+            width: 100%;
+        }
+
+        h1{
+            font-size: 20px;
+        }
+    }
+</style>
+{% endblock %}
+{% block body %}
+<div class="guest_text">
+    <p style="color: white;">Welcome, guest users! As a guest on our website, you have access to limited functionalities. You can explore and view the book titles available in our library, inquire through our "Contact Us" page, and find general information about the library, including our hours of operation and book categories. <br> <br>
+
+        If you wish to unlock a broader range of features and resources, we encourage you to register as a user by clicking the "Register" button below. Once registered, you'll gain access to the full suite of ELibrary features, including the ability to search for books by title, category, author, or publisher, read books online, download books (if allowed by the ADMIN), access video tutorials, and even change your password for added security and convenience. Registration is a one-time requirement to enhance your ELibrary experience. Thank you for considering joining our community of registered users!</p>
+
+        <a class="regbutton btn btn-outline-primary btn-sm" href="/registereduser_registration/">Register</a>
+</div>
+
+<div class="container mt-4">
+    
+    <h1 class="text-center">ALL BOOKS</h1>
+    <div class="table-responsive">
+    <table class="table table-hover" id="example">
+        <thead>
+            <tr>
+                <th>Sr.No</th>
+                <th>Book Name</th>
+                <th>Author</th>
+                <th>Video Tutorial</th>
+                <th>Category</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>{{forloop.counter}}.</td>
+                <td>{{book.name}}</td>
+                <td>{{book.author}}</td>
+                <td style="color: red;">Available to only Registered Users</td>
+                <td>{{book.category}}</td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+{% endblock %}

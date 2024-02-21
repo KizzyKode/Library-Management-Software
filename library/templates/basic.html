@@ -1,0 +1,91 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/e2795a0685.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.lordicon.com/bhenfmcm.js" async></script>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static 'script.js' %}"></script>
+
+    <title>{% block title %} {% endblock %}</title>
+
+    {% block css %}
+ 
+  
+    {% endblock %}
+  </head>
+  <body >
+    <nav  class="navbar navbar-expand-lg navbar-black bg-black sticky-top">
+        <div style="background-color: black;" class="container-fluid">
+          <a style="color: white;"  class="navbar-brand" href="#">Library Management</a>
+          <lord-icon
+          src="https://cdn.lordicon.com/wxnxiano.json"
+          trigger="loop"
+          colors="primary:#0db8de,secondary:#27ef9f"
+          stroke="40"
+          state="loop"
+          style="width:40px;height:40px">
+      </lord-icon>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- <span  class="navbar-toggler-icon "> </span> -->
+            <div style="width: 30px;
+            height: 3px;
+            background-color: white; 
+            margin: 6px 0;
+            transition: 0.4s;" class="bar"></div>
+  <div style="width: 30px;
+  height: 3px;
+  background-color: white; 
+  margin: 6px 0;
+  transition: 0.4s;" class="bar" class="bar"></div>
+  <div style="width: 30px;
+  height: 3px;
+  background-color: white; 
+  margin: 6px 0;
+  transition: 0.4s;" class="bar" class="bar"></div>
+          </button>
+          <div style="background-color: #222D32" class="collapse navbar-collapse" id="navbarSupportedContent">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a style="color: white;" class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              &nbsp;&nbsp;&nbsp;
+              
+              <li class="nav-item">
+                <a  style="color: white;" class="nav-link active" href="/registereduser_registration/">Create a Registered Account</a>
+              </li>
+              &nbsp;&nbsp;&nbsp;
+              
+              <li class="nav-item">
+                <a style="color: white;" class="nav-link active" href="/registereduser_login/">Login as User</a>
+              </li>
+              &nbsp;&nbsp;&nbsp;
+              <li class="nav-item">
+                <a style="color: white;" class="nav-link active" href="/admin_login/">Login as Admin</a>
+              </li>
+              &nbsp;&nbsp;&nbsp;
+              <li class="nav-item">
+                <a style="color: white;" class="nav-link active" href="/admin_login/">Add Books</a>
+              </li>
+              &nbsp;&nbsp;&nbsp;
+              <li class="nav-item">
+                <a style="color: white;" class="nav-link active" href="/guest_user/">Guest User</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      {% block body %}
+      {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    {% block js %}
+    {% endblock %}
+  </body>
+</html>

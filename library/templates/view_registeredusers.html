@@ -1,0 +1,84 @@
+{% extends 'admin_navbar.html' %}
+{% load static %}
+{% block title %} All Users List {% endblock %}
+{% block css %}
+<style>
+    body {
+        background: #222D32;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .container {
+        margin-top: 75px;
+        width: 80%;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 30px;
+        letter-spacing: 2px;
+        font-weight: bold;
+        color: #ECF0F5;
+        margin-bottom: 20px;
+    }
+
+    table {
+        background-color: #1A2226;
+        color: #ECF0F5;
+    }
+
+    th {
+        background-color: #0DB8DE;
+        color: #1A2226;
+        font-weight: bold;
+    }
+
+    td {
+        text-align: center;
+    }
+
+    table.table-hover tbody tr:hover {
+        background-color: #0DB8DE;
+        color: #1A2226;
+    }
+
+    th {
+        color: white;
+    }
+</style>
+{% endblock %}
+{% block body %}
+<div class="container mt-4">
+    <h1 class="text-center">ALL USERS</h1>
+    <table class="table table-hover" id="example">
+        <thead>
+            <tr class="text-center">
+                <th>Sr.No</th>
+                <th>Name</th>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Mobile Number</th>
+                <th>Branch</th>
+                <th>Class</th>
+                <th>Roll Number</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for registereduser in registeredusers %}
+            <tr class="text-center">
+                <td>{{forloop.counter}}.</td>
+                <td>{{registereduser.user.get_full_name}}</td>
+                <td>{{registereduser.user.id}}</td>
+                <td>{{registereduser.user.email}}</td>
+                <td>{{registereduser.phone}}</td>
+                <td>{{registereduser.branch}}</td>
+                <td>{{registereduser.classroom}}</td>
+                <td>{{registereduser.roll_no}}</td>
+                <td><a href="/delete_registereduser/{{registereduser.user.id}}/" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

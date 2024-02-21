@@ -1,0 +1,123 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block title %} Library Management System {% endblock %}
+{% block css %}
+<style>
+  .regbutton {
+    background-color: transparent !important;
+    border: 1px solid #0DB8DE;
+    color: #0DB8DE;
+    padding: 10px;
+    text-decoration: none;
+    font-weight: bold;
+   
+  }
+
+  .regbutton:hover {
+    background-color: #0DB8DE !important;
+    color: white;
+  }
+
+  .login-key {
+    height: 120px;
+    font-size: 100px;
+    line-height: 100px;
+    background: -webkit-linear-gradient(#27EF9F, #0DB8DE);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  
+
+  body {
+    background-color: #222D32;
+  }
+
+  .login-key i {
+    color: #27EF9F;
+  }
+
+  p{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 17px;
+    
+  
+  }
+
+  .index-text{
+    background-color: #1A2226;
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    
+    
+    
+  }
+
+ 
+
+  .col-lg-4{
+ 
+    text-align: center;
+  }
+  
+
+</style>
+{% endblock %}
+{% block body %}
+<div style="background-color: #222D32 !important;" class="p-4 bg-light">
+    <div class="container-fluid py-3 d-flex flex-column flex-md-row align-items-center">
+        <div class="index-text col-md-8 fs-4 mb-3 mb-md-0">
+            <p style="color: white;">By becoming a registered user, you unlock a world of benefits within our platform. Registration is a one-time requirement, granting you access to our extensive ELibrary. Once registered, you can seamlessly log in and explore the wealth of features we offer: <br>
+
+              <br>1. Effortless Access: Enjoy swift access to our vast collection.
+              <br>2. Search: Easily locate books by title, category, author, or publisher.
+              <br>3. Online Reading: Dive into the world of literature with online reading options.
+              <br>4. Downloads: If permitted by the ADMIN, you'll have the ability to download books for offline enjoyment.
+              <br>5. Educational Resources: Access a trove of video tutorials across various categories.
+              <br>6. Password Control: Maintain your account security by changing your password at your convenience.
+              
+              <br><br> We value your commitment to enhancing our library services and look forward to providing you with a rich and seamless reading experience.</p>
+        </div>
+        <div class="col-md-4 text-center">
+          
+<!-- <lord-icon
+    src="https://cdn.lordicon.com/wxnxiano.json"
+    trigger="loop"
+    colors="primary:#0db8de,secondary:#27ef9f"
+    stroke="20"
+    state="loop"
+    style="width:150px;height:200px">
+</lord-icon> -->
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="col-lg-12 login-key">
+                    <i class="fa-solid fa fa-user-plus" aria-hidden="true"></i>
+                </div>
+                <br><br>
+                <a class="regbutton btn btn-outline-primary btn-sm" style="text-align:center" href="/admin_login/">Admin</a>
+            </div>
+            <div class="col-lg-4">
+                <div class="col-lg-12 login-key">
+                    <i class="fa-solid fa fa-id-card" aria-hidden="true"></i>
+                </div>
+                <br><br>
+                <a class="regbutton btn btn-outline-primary btn-sm" href="/registereduser_login/">Registered User</a>
+            </div>
+            <div class="col-lg-4">
+              <div class="col-lg-12 login-key">
+                  <i class="fa-solid fa fa-users" aria-hidden="true"></i>
+              </div>
+              <br><br>
+              <a class="regbutton btn btn-outline-primary btn-sm" href="/guest_user/">Guest Users</a>
+          </div>
+        </div>
+    </div>
+</div>
+<div style="height: 100px; width: 100%">
+</div>
+{% endblock %}

@@ -1,0 +1,155 @@
+{% extends 'registereduser_navbar.html' %}
+
+{% block title %} Profile {% endblock %}
+
+{% block css %}
+<style>
+    .profile {
+        padding: 3%;
+        margin-top: 3%;
+        margin-bottom: 3%;
+        border-radius: 0.5rem;
+        background: #fff;
+    }
+    
+    .profile-img {
+        text-align: center;
+    }
+    
+    .profile-img .file {
+        position: relative;
+        overflow: hidden;
+       
+        width: 70%;
+        border: none;
+        border-radius: 50%; /* Make it a circle */
+        font-size: 15px;
+        background: #0DB8DE;
+    }
+    
+    /* Center the image inside the circle */
+    .profile-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+    
+    .btn {
+        color: #0DB8DE;
+        border: 1px solid #0DB8DE;
+        border-radius: 0;
+        font-weight: bold;
+        letter-spacing: 1px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
+    
+    .btn:hover {
+        color: white;
+        background-color: #0DB8DE;
+    }
+
+    @media (max-width: 767px) {
+        .profile-img .file {
+            position: relative;
+            overflow: hidden;
+           
+            width: 50%;
+            border: none;
+            border-radius: 50%; /* Make it a circle */
+            font-size: 15px;
+            background: #0DB8DE;
+        }
+
+        
+
+        
+    }
+    
+</style>
+{% endblock %}
+{% block body %}
+
+<div style="background-color: #1A2226; color: white" class="container profile">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="profile-img">
+                <div class="file">
+                    <img src="{{user.registereduser.image.url}}" alt="Profile Picture">
+                </div>
+            </div>
+            </div>
+            <div class="col-md-8">
+                <div class="profile-tab">
+                    <div class="tab-pane">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>ID:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{user.id}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Username:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{user}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Full Name:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{user.get_full_name}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Email:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{user.email}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Phone Number:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{user.registereduser.phone}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Branch:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{user.registereduser.branch}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Class:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{user.registereduser.classroom}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Roll Number:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{user.registereduser.roll_no}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a  href="/edit_profile/" style="width: 9rem;" class="btn btn-outline-primary mt-3">Edit Profile</a>
+                </div>
+            </div>
+</div>
+</div>
+{% endblock %}
