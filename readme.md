@@ -1,6 +1,6 @@
 # Library Management System
 
-This is a Django-based Library Management System that allows administrators to manage books, registered users, and issued books. It also provides a user interface for registered users to view their issued books and update their profiles.
+This is a Django-based Library Management System that allows administrators to manage books, registered users, and issued books. It also provides a user interface for registered users to view their issued books and update their profiles. It also allows Guest Users to access the system.
 
 ## Instructions for Running the Project
 
